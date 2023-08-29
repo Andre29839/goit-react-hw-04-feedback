@@ -1,18 +1,17 @@
-import { Component } from "react"
+import { Component, useState } from "react"
 import { Section } from "./Section/Section"
 import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions"
 import { Statistic } from "./Statistic/Statistic"
 import { Notification } from "./Notification/Notification"
 
-export class App extends Component {
+export const App = () => {
 
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  }
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
 
-  heandleLeaveFeedback = option => {
+  const heandleLeaveFeedback = option => {
+    
     this.setState(prevState => ({  
         [option]: prevState[option] + 1
       })
